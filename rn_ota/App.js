@@ -65,15 +65,15 @@ export default class App extends Component<Props> {
       updateDialog: true,
       installMode: CodePush.InstallMode.IMMEDIATE
     }, (status) => {
-      for (var key in CodePush.SyncStatus) {
-        if(status === CodePush.SyncStatus[key]) {
-          this.setState({
-            logs: [...this.state.logs, key.replace(/_/g, ' ')]
-          });
+      // for (var key in CodePush.SyncStatus) {
+      //   if(status === CodePush.SyncStatus[key]) {
+      //     this.setState({
+      //       logs: [...this.state.logs, key.replace(/_/g, ' ')]
+      //     });
 
-          break;
-        }
-      }
+      //     break;
+      //   }
+      // }
     })
   }
 
