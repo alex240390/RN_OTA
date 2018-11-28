@@ -60,15 +60,16 @@ export default class App extends Component<Props> {
 
   codePushSync() {
     this.setState({logs: ['started at ' + new Date().getTime()]})
+
     CodePush.sync({
       updateDialog: true,
       installMode: CodePush.InstallMode.IMMEDIATE
     }, (status) => {
       for (var key in CodePush.SyncStatus) {
         if(status === CodePush.SyncStatus[key]) {
-          this.setState(prevState => ({
-            logs: [...prevState, key.replace(/_/g, ' ')];
-          }));
+          this.setState({
+            logs: [...this.state.logs, key.replace(/_/g, ' ')]
+          });
 
           break;
         }
