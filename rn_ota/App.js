@@ -21,14 +21,13 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state( {
+    this.state = {
       logs: []
-    })
+    };
   }
 
   sendEvent() {
@@ -65,25 +64,25 @@ export default class App extends Component<Props> {
       updateDialog: true,
       installMode: CodePush.InstallMode.IMMEDIATE
     }, (status) => {
-      // for (var key in CodePush.SyncStatus) {
-      //   if(status === CodePush.SyncStatus[key]) {
-      //     this.setState({
-      //       logs: [...this.state.logs, key.replace(/_/g, ' ')]
-      //     });
+      for (var key in CodePush.SyncStatus) {
+        if(status === CodePush.SyncStatus[key]) {
+          this.setState({
+            logs: [...this.state.logs, key.replace(/_/g, ' ')]
+          });
 
-      //     break;
-      //   }
-      // }
+          break;
+        }
+      }
     })
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.sendEvent()}>Custom Analytics Event</TouchableOpacity>
-        <TouchableOpacity onPress={() => this.nativeCrash()}>Native Crash Event</TouchableOpacity>
-        <TouchableOpacity onPress={() => this.jsCrash()}>Javascript Crash Event</TouchableOpacity>
-        <TouchableOpacity onPress={() => this.codePushSync()}>CodePush Sync</TouchableOpacity>
+        <TouchableOpacity onPress={() => this.sendEvent()}><Text>Custom Analytics Event</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.nativeCrash()}><Text>Native Crash Event</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.jsCrash()}><Text>Javascript Crash Event</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.codePushSync()}><Text>CodePush Sync</Text></TouchableOpacity>
         <Text>{JSON.stringify(this.state.logs)}</Text>
       </View>
     );
