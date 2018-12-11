@@ -32,14 +32,14 @@ class App extends Component {
       case CodePush.SyncStatus.UP_TO_DATE:
         this.setState({ syncMessage: "App up to date.", progress: false });
         break;
-      case CodePush.SyncStatus.UPDATE_IGNORED:
+      case CodePush.SyncStatus.UPDATE_IGNORED: 
         this.setState({ syncMessage: "Update cancelled by user.", progress: false });
         break;
       case CodePush.SyncStatus.UPDATE_INSTALLED:
         this.setState({ syncMessage: "Update installed and will be applied on restart.", progress: false });
         break;
       case CodePush.SyncStatus.UNKNOWN_ERROR:
-        this.setState({ syncMessage: "An unknown error occurred.", progress: false });
+        this.setState({ syncMessage: "An unknown error occurred", progress: false });
         break;
     }
   }
