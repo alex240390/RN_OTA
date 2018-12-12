@@ -111,7 +111,7 @@ class App extends Component {
           <Text style={styles.syncButton}>Press for Update Metadata</Text>
         </TouchableOpacity>
         <Text style={styles.messages}>{this.state.syncMessage || ""}</Text>
-        <Text style={styles.messages}>TESTING</Text>
+        <Text style={styles.messages}>OTA proof of concept</Text>
       </View>
     );
   }
