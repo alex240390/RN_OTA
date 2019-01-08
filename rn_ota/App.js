@@ -103,7 +103,7 @@ class App extends Component {
         <TouchableOpacity onPress={this.syncImmediate.bind(this)}>
           <Text style={styles.syncButton}>Press for dialog-driven sync</Text>
         </TouchableOpacity>
-        {progressView}
+          {progressView}
         <TouchableOpacity onPress={this.toggleAllowRestart.bind(this)}>
           <Text style={styles.restartToggleButton}>Restart { this.state.restartAllowed ? "allowed" : "forbidden"}</Text>
         </TouchableOpacity>
@@ -111,7 +111,7 @@ class App extends Component {
           <Text style={styles.syncButton}>Press for Update Metadata</Text>
         </TouchableOpacity>
         <Text style={styles.messages}>{this.state.syncMessage || ""}</Text>
-        <Text style={styles.messages}>OTA proof of concept</Text>
+        <Text style={styles.messages}>Hello 2019 !</Text>
       </View>
     );
   }
